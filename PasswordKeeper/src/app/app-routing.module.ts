@@ -6,6 +6,7 @@ import { MainComponent } from "app/main/main.component";
 const routes: Routes = [
     {path: '', component: MainComponent},
     {path: 'signin', component: SigninComponent},
+    {path: '**', component: SigninComponent},
 ];
 
 @NgModule({

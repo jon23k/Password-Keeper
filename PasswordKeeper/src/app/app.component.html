@@ -7,7 +7,7 @@
   <md-icon>more_vert</md-icon>
 </button>
 <md-menu [overlapTrigger]="false" #signOutMenu="mdMenu">
-  <button md-menu-item (click)="signOut()">Sign Out</button>
+  <button md-menu-item (click)="signOut()" [routerLink]="['/signin']" routerLinkActive="active">Sign Out</button>
 </md-menu>
 
 

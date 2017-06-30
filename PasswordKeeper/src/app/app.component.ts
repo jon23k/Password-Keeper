@@ -11,5 +11,6 @@ export class AppComponent {
 
   signOut(): void{
     console.log("signing out the user");
+    
   };
 }
