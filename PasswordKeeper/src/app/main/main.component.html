@@ -1,3 +1,5 @@
-<p>
-  main works!
-</p>
+<md-grid-list cols="3" rowHeight="2:1">
+  <md-grid-tile *ngFor="let password of stream | async">
+    <pre>{{password | json}}</pre>
+  </md-grid-tile>
+</md-grid-list>
