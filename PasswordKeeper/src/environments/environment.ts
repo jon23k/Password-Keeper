@@ -13,4 +13,5 @@ export const environment = {
     storageBucket: "kurianj-password-keeper-e1390.appspot.com",
     messagingSenderId: "251377862043"
   },
+  rosefireRegistryToken: "dcf283b4-d2e9-42e4-8a3a-06f1a3eb8ffc",
 };
