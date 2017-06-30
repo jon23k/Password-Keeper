@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+   firebaseconfig : {
+    apiKey: "AIzaSyBtQUoDbvb5pCcX_ZlKyor5s_ucvHW0yFQ",
+    authDomain: "kurianj-password-keeper-e1390.firebaseapp.com",
+    databaseURL: "https://kurianj-password-keeper-e1390.firebaseio.com",
+    projectId: "kurianj-password-keeper-e1390",
+    storageBucket: "kurianj-password-keeper-e1390.appspot.com",
+    messagingSenderId: "251377862043"
+  },
 };
