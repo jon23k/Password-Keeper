@@ -37,6 +37,7 @@ import {
 } from '@angular/material';
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './signin/signin.component';
+import { PasswordDialogComponent } from './password-dialog/password-dialog.component';
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -68,7 +69,11 @@ export const MaterialModules = [
   declarations: [
     AppComponent,
     MainComponent,
-    SigninComponent
+    SigninComponent,
+    PasswordDialogComponent
+  ],
+  entryComponents: [
+    PasswordDialogComponent,
   ],
   imports: [
     BrowserModule,
