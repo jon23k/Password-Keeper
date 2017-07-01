@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 
 interface PasswordDialogData{
   firebasePath:string;
+  password?:Password;
 }
 
 @Component({
@@ -14,6 +15,7 @@ interface PasswordDialogData{
 })
 export class PasswordDialogComponent implements OnInit {
 
+  title="Add a new password!";
   formPassword : Password;
 
   constructor(private dialogRef: MdDialogRef<PasswordDialogComponent>,
@@ -23,14 +25,23 @@ export class PasswordDialogComponent implements OnInit {
    }
 
   ngOnInit() {
+    if(this.dialogData.password){
+       this.title = "Edit this password!"
+      Object.assign(this.formPassword, this.dialogData.password);
+    }
   }
 
   onSubmit(){
     try{
-    console.log("TODO submit", this.formPassword);
-    firebase.database().ref(this.dialogData.firebasePath).push(this.formPassword);
-    console.log("Firebase pushed!");
-    this.dialogRef.close();
+      const firebaseRef = firebase.database().ref(this.dialogData.firebasePath);
+      if(this.dialogData.password){
+          firebaseRef.child(this.dialogData.password.$key).set(this.formPassword); 
+      }
+      else{
+        firebaseRef.push(this.formPassword);
+      }
+      this.dialogRef.close();
+
     } catch(e){
       console.error("Submit Error", e);
     }
