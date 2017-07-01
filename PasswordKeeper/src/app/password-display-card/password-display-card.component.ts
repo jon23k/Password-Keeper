@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Password } from "app/models/password.model";
+import { MdSnackBar } from "@angular/material";
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-password-display-card',
@@ -8,9 +10,22 @@ import { Password } from "app/models/password.model";
 })
 export class PasswordDisplayCardComponent implements OnInit {
   @Input() password: Password; 
+  @Input() firebasePath: string;
   isExpanded= false;
 
-  constructor() { }
+  constructor(private snackBar : MdSnackBar) { }
   ngOnInit() {
+  }
+
+  edit(): void{
+    console.log("edit");
+  }
+
+  delete(): void{
+    console.log("delete");
+    firebase.database().ref(this.firebasePath).child(this.password.$key).remove();
+    this.snackBar.open("Password Removed!", "Dismiss",{
+      duration: 3000,
+    });
   }
 }

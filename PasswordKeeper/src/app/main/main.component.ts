@@ -18,7 +18,7 @@ export class MainComponent implements OnInit, OnDestroy{
   showSignOut = 'false';
   private authStateSubscription: Subscription;
   passwordStream: FirebaseListObservable<Password[]>;
-  private firebasePath: string;
+  firebasePath: string;
 
 
   constructor(private afAuth: AngularFireAuth, private router: Router, private db: AngularFireDatabase, private dialog: MdDialog) { }
